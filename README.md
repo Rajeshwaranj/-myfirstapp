@@ -1,5 +1,5 @@
-# -myfirstapp
-Deploy Spring boot application into AWS using Jenkins CICD
+# Deploy Spring boot application into AWS using Jenkins CICD
+
 
 Add the ec2-user, Jenkins user to the docker group so you can execute Docker commands without using sudo.:
 
