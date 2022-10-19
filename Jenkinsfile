@@ -1,7 +1,7 @@
 node {
   def image
    stage ('checkout') {
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/harshalkathar/myfirstapp.git']]])      
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/Rajeshwaranj/myfirstapp.git']]])      
         }
    
    stage ('Build') {
@@ -26,8 +26,8 @@ node {
                 {
                     withCredentials([usernamePassword(credentialsId: 'gitlogin', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
-                        sh "git config user.email katharharshal1@gmail.com"
-                        sh "git config user.name harshalkathar"
+                        sh "git config user.email rajeshwaranj12@gmail.com"
+                        sh "git config user.name Rajeshwaranj"
                         sh "sed -i 's+<gcp-project-id>/springboot.*+<gcp-project-id>/springboot:${env.BUILD_NUMBER}+g' spring-boot.yaml"
                         sh "git add ."
                         sh "git commit -m 'jenkinsbuild: ${env.BUILD_NUMBER}'"
